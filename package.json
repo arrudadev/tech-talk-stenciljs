@@ -1,0 +1,17 @@
+{
+  "name": "tech-talk-stenciljs",
+  "version": "1.0.0",
+  "description": "Code of the tech talk about Web Components and StencilJs",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build --filter=./packages/*"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "turbo": "^1.8.3"
+  }
+}
