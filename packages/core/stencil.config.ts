@@ -20,7 +20,7 @@ export const config: Config = {
       serviceWorker: null, // disable service workers
     },
     reactOutputTarget({
-      componentCorePackage: '@stencil-ui/stencil',
+      componentCorePackage: '@stencil-ui/core',
       proxiesFile: '../react/src/components/index.ts',
     }),
   ],
