@@ -5,8 +5,7 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "build": "tsup src/index.ts --format esm,cjs --dts --external react",
-    "dev": "tsup src/index.ts --format esm,cjs --dts --watch --external"
+    "build": "tsup src/index.ts --format esm,cjs --dts --external react"
   },
   "license": "MIT",
   "devDependencies": {
