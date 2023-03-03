@@ -7,6 +7,11 @@
 
     <script type="module" src="/build/stencil-ui.esm.js"></script>
     <script nomodule src="/build/stencil-ui.js"></script>
+    <script>
+      function changeInput() {
+        console.log('changeInput')
+      }
+    </script>
   </head>
   <body>
     <my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>
@@ -14,5 +19,7 @@
     <my-heading text="Heading Example"></my-heading>
 
     <my-text text="Text Example"></my-text>
+
+    <my-text-input placeholder="Text Input Example"></my-text-input>
   </body>
 </html>

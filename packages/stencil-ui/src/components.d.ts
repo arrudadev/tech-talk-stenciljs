@@ -32,6 +32,14 @@ export namespace Components {
          */
         "text": string;
     }
+    interface MyTextInput {
+        "placeholder"?: string;
+        "value"?: string;
+    }
+}
+export interface MyTextInputCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLMyTextInputElement;
 }
 declare global {
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
@@ -52,10 +60,17 @@ declare global {
         prototype: HTMLMyTextElement;
         new (): HTMLMyTextElement;
     };
+    interface HTMLMyTextInputElement extends Components.MyTextInput, HTMLStencilElement {
+    }
+    var HTMLMyTextInputElement: {
+        prototype: HTMLMyTextInputElement;
+        new (): HTMLMyTextInputElement;
+    };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
         "my-heading": HTMLMyHeadingElement;
         "my-text": HTMLMyTextElement;
+        "my-text-input": HTMLMyTextInputElement;
     }
 }
 declare namespace LocalJSX {
@@ -85,10 +100,16 @@ declare namespace LocalJSX {
          */
         "text"?: string;
     }
+    interface MyTextInput {
+        "onChangeInput"?: (event: MyTextInputCustomEvent<string>) => void;
+        "placeholder"?: string;
+        "value"?: string;
+    }
     interface IntrinsicElements {
         "my-component": MyComponent;
         "my-heading": MyHeading;
         "my-text": MyText;
+        "my-text-input": MyTextInput;
     }
 }
 export { LocalJSX as JSX };
@@ -98,6 +119,7 @@ declare module "@stencil/core" {
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
             "my-heading": LocalJSX.MyHeading & JSXBase.HTMLAttributes<HTMLMyHeadingElement>;
             "my-text": LocalJSX.MyText & JSXBase.HTMLAttributes<HTMLMyTextElement>;
+            "my-text-input": LocalJSX.MyTextInput & JSXBase.HTMLAttributes<HTMLMyTextInputElement>;
         }
     }
 }
