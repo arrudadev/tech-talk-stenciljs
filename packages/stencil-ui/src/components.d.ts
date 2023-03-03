@@ -26,6 +26,12 @@ export namespace Components {
          */
         "text": string;
     }
+    interface MyText {
+        /**
+          * Text Text Content
+         */
+        "text": string;
+    }
 }
 declare global {
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
@@ -40,9 +46,16 @@ declare global {
         prototype: HTMLMyHeadingElement;
         new (): HTMLMyHeadingElement;
     };
+    interface HTMLMyTextElement extends Components.MyText, HTMLStencilElement {
+    }
+    var HTMLMyTextElement: {
+        prototype: HTMLMyTextElement;
+        new (): HTMLMyTextElement;
+    };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
         "my-heading": HTMLMyHeadingElement;
+        "my-text": HTMLMyTextElement;
     }
 }
 declare namespace LocalJSX {
@@ -66,9 +79,16 @@ declare namespace LocalJSX {
          */
         "text"?: string;
     }
+    interface MyText {
+        /**
+          * Text Text Content
+         */
+        "text"?: string;
+    }
     interface IntrinsicElements {
         "my-component": MyComponent;
         "my-heading": MyHeading;
+        "my-text": MyText;
     }
 }
 export { LocalJSX as JSX };
@@ -77,6 +97,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
             "my-heading": LocalJSX.MyHeading & JSXBase.HTMLAttributes<HTMLMyHeadingElement>;
+            "my-text": LocalJSX.MyText & JSXBase.HTMLAttributes<HTMLMyTextElement>;
         }
     }
 }
